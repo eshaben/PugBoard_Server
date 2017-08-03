@@ -9,25 +9,4 @@ router.get('/', function(req, res) {
   })
 });
 
-// router.get('/', function(req, res) {
-//   knex('category')
-//   .then((data) => {
-//     res.json(data)
-//   })
-// });
-//
-// router.get('/', function(req, res) {
-//   knex('thread')
-//   .then((data) => {
-//     res.json(data)
-//   })
-// });
-//
-// router.get('/', function(req, res) {
-//   knex('message')
-//   .then((data) => {
-//     res.json(data)
-//   })
-// });
-
 module.exports = router;
