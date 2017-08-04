@@ -4,6 +4,18 @@ function getUsers() {
   return knex('user')
 }
 
+function getMessages() {
+  return knex('message')
+}
+
+function postMessage() {
+  return knex('message')
+  .insert(newPost)
+  returning('*')
+}
+
 module.exports = {
-  getUsers
+  getUsers,
+  getMessages,
+  postMessage
 }

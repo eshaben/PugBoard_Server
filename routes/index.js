@@ -3,12 +3,19 @@ var router = express.Router();
 const knex = require('../db/knex')
 const queries = require('./queries')
 
-router.get('/', function(req, res) {
-  queries.getUsers()
-  .then((data) => {
-    res.json(data)
+router.get('/', (req, res) => {
+  queries.getMessages()
+  .then((messages) => {
+    res.json(messages)
   })
-});
+})
 
+router.post('/', (req, res) => {
+  queries.postMessage()
+  let newPost = req.body
+  .then(newPost => {
+    res.json(newPost)
+  })
+})
 
 module.exports = router;
