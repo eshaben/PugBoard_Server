@@ -1,9 +1,5 @@
 const knex = require('../db/knex')
 
-function getUsers() {
-  return knex('user')
-}
-
 function getMessages() {
   return knex('message')
 }
@@ -14,8 +10,19 @@ function postMessage() {
   returning('*')
 }
 
+function getUsers() {
+  return knex('user')
+}
+
+function getUserByID(id) {
+  return knex('user')
+  .where('id', id)
+}
+
+
 module.exports = {
   getUsers,
+  getUserByID,
   getMessages,
   postMessage
 }
