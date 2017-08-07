@@ -19,10 +19,17 @@ function getUserByID(id) {
   .where('id', id)
 }
 
+function postSignUp() {
+  return knex('user')
+  .insert(newUser)
+  
+}
+
 
 module.exports = {
   getUsers,
   getUserByID,
   getMessages,
-  postMessage
+  postMessage,
+  postSignUp
 }
