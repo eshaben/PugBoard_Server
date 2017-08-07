@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 
 function getMessages() {
   return knex('message')
+  .innerJoin('user', 'message.user_id', '=', 'user.id')
 }
 
 function postMessage(post) {
