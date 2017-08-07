@@ -18,13 +18,6 @@ router.post('/', (req, res) => {
   })
 })
 
-router.post('/' (req, res) => {
-  queries.postSignUp()
-  let newUser = req.body
-  .then(newUser => {
-    res.json(newUser)
-  })
-})
 
 
 

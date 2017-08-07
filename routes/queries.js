@@ -1,4 +1,5 @@
 const knex = require('../db/knex')
+const bodyParser = require('body-parser')
 
 function getMessages() {
   return knex('message')
@@ -19,12 +20,11 @@ function getUserByID(id) {
   .where('id', id)
 }
 
-function postSignUp() {
+function postSignUp(user) {
   return knex('user')
-  .insert(newUser)
-  
+  .insert(user)
+  .returning('*')
 }
-
 
 module.exports = {
   getUsers,
