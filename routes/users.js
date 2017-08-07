@@ -23,4 +23,12 @@ router.get('/:id', (req, res) => {
   })
 })
 
+router.post('/', (req, res) => {
+  let newUser = req.body
+  queries.postSignUp(newUser)
+  .then(newUser => {
+    res.json(newUser)
+  })
+})
+
 module.exports = router;
