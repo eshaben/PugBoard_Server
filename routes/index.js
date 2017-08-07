@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
   })
 })
 
-router.post('/', (req, res) => {
+router.post('/:id', (req, res) => {
   let newPost = req.body
   queries.postMessage(newPost)
   .then(newPost => {
