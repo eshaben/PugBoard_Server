@@ -11,8 +11,8 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  queries.postMessage()
   let newPost = req.body
+  queries.postMessage(newPost)
   .then(newPost => {
     res.json(newPost)
   })

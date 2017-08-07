@@ -5,9 +5,9 @@ function getMessages() {
   return knex('message')
 }
 
-function postMessage() {
+function postMessage(post) {
   return knex('message')
-  .insert(newPost)
+  .insert(post)
   returning('*')
 }
 
