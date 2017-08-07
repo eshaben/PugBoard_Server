@@ -27,10 +27,16 @@ function postSignUp(user) {
   .returning('*')
 }
 
+function deleteMessage(id) {
+  return knex('message')
+  .where('id', id).del()
+}
+
 module.exports = {
   getUsers,
   getUserByID,
   getMessages,
   postMessage,
-  postSignUp
+  postSignUp,
+  deleteMessage
 }

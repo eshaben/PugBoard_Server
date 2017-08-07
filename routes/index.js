@@ -18,6 +18,16 @@ router.post('/:id', (req, res) => {
   })
 })
 
+router.delete('/:id', (req, res) => {
+  let id = req.params.id
+  queries.deleteMessage(id)
+  .then(deleted => {
+    res.json({
+      message: 'message deleted'
+    })
+  })
+})
+
 
 
 
