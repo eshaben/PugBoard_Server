@@ -14,7 +14,10 @@ router.post('/:id', (req, res) => {
   let newPost = req.body
   queries.postMessage(newPost)
   .then(newPost => {
-    res.json(newPost)
+    res.json({
+      newPost: newPost,
+      message: "success"
+    })
   })
 })
 
