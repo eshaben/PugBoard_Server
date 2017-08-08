@@ -6,6 +6,11 @@ function getMessages() {
   .leftOuterJoin('user', 'message.user_id', '=', 'user.id')
 }
 
+function getMessagesById(id){
+  return knex('message')
+  .where('id', id).first()
+}
+
 function postMessage(post) {
   return knex('message')
   .insert(post)
@@ -32,11 +37,19 @@ function deleteMessage(id) {
   .where('id', id).del()
 }
 
+function editMessage(id, edit){
+  return knex('message').where('id', id)
+  .update(edit)
+  .returning('*')
+}
+
 module.exports = {
   getUsers,
+  getMessagesById,
   getUserByID,
   getMessages,
   postMessage,
   postSignUp,
-  deleteMessage
+  deleteMessage,
+  editMessage
 }
