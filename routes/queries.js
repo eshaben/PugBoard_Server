@@ -6,9 +6,9 @@ function getMessages() {
   .leftOuterJoin('user', 'message.user_id', '=', 'user.id')
 }
 
-function getMessagesById(id){
+function getMessagesByUserId(id){
   return knex('message')
-  .where('id', id).first()
+  .where('user_id', id)
 }
 
 function postMessage(post) {
@@ -45,7 +45,7 @@ function editMessage(id, edit){
 
 module.exports = {
   getUsers,
-  getMessagesById,
+  getMessagesByUserId,
   getUserByID,
   getMessages,
   postMessage,

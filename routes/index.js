@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   let id = req.params.id
-  queries.getMessagesById(id)
+  queries.getMessagesByUserId(id)
   .then((message) => {
     res.json(message)
   })
