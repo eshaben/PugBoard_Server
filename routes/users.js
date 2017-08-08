@@ -4,6 +4,7 @@ const knex = require('../db/knex')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const queries = require('./queries')
+const cors = require('cors')
 
 require('dotenv').config()
 
