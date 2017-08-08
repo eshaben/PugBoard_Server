@@ -10,28 +10,31 @@ router.get('/', (req, res) => {
   })
 })
 
+router.get('/:id', (req, res) => {
+  let id = req.params.id
+  queries.getMessagesById(id)
+  .then((message) => {
+    res.json(message)
+  })
+})
+
 router.post('/:id', (req, res) => {
+  let id = req.params.id
   let newPost = req.body
   queries.postMessage(newPost)
   .then(newPost => {
-    res.json({
-      newPost: newPost,
-      message: "success"
-    })
+    res.json(newPost)
   })
 })
 
-router.delete('/:id', (req, res) => {
+router.put('/:id', (req, res) => {
   let id = req.params.id
-  queries.deleteMessage(id)
-  .then(deleted => {
-    res.json({
-      message: 'message deleted'
-    })
+  let edit = req.body
+  queries.editMessage(id, edit)
+  .then(edited => {
+    res.json(edited)
   })
 })
-
-
 
 
 
