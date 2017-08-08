@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 
 function getMessages() {
   return knex('message')
+  .select('message.id as message_id', '*')
   .leftOuterJoin('user', 'message.user_id', '=', 'user.id')
 }
 
