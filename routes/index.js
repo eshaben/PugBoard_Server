@@ -36,6 +36,14 @@ router.put('/:id', (req, res) => {
   })
 })
 
+router.get('/message/:id', (req, res) => {
+  let id = req.params.id
+  queries.getMessagesById(id)
+  .then((message) => {
+    res.json(message)
+  })
+})
+
 
 
 module.exports = router;

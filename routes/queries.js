@@ -12,6 +12,11 @@ function getMessagesByUserId(id){
   .where('user_id', id)
 }
 
+function getMessagesById(id) {
+  return knex('message')
+  .where('id', id)
+}
+
 function postMessage(post) {
   return knex('message')
   .insert(post)
@@ -52,5 +57,6 @@ module.exports = {
   postMessage,
   postSignUp,
   deleteMessage,
-  editMessage
+  editMessage,
+  getMessagesById
 }
