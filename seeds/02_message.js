@@ -11,7 +11,7 @@ exports.seed = function(knex, Promise) {
         {id: 4, title: 'Snort', message: 'Snort Snort ZZZZZZZZZZZZZ. ', rating: 9, user_id: 1},
         {id: 5, title: 'Grrrr!!!', message: 'Sniff Sniff Bark Growl.', rating: 37, user_id: 5},
         {id: 6, title: 'BARK WOOF!', message: 'Where is Berto', rating: 197, user_id: 3},
-        {id: 7, title: 'Lap Dogs', message: 'What knid of lap dogs do you have?', rating: 58, user_id: 4}
+        {id: 7, title: 'Lap Dogs', message: 'What kind of lap dogs do you have?', rating: 58, user_id: 4}
       ]);
     });
 };
