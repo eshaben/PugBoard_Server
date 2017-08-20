@@ -1,7 +1,7 @@
 const knex = require('../db/knex')
 const bodyParser = require('body-parser')
 
-function getMessages() {
+function getAllMessages() {
   return knex('message')
   .select('message.id as message_id', '*')
   .leftOuterJoin('user', 'message.user_id', '=', 'user.id')
@@ -23,7 +23,7 @@ function postMessage(post) {
   returning('*')
 }
 
-function getUsers() {
+function getUsers(newPost) {
   return knex('user')
 }
 
@@ -49,11 +49,12 @@ function editMessage(id, edit){
   .returning('*')
 }
 
+
 module.exports = {
   getUsers,
   getMessagesByUserId,
   getUserByID,
-  getMessages,
+  getAllMessages,
   postMessage,
   postSignUp,
   deleteMessage,
