@@ -23,8 +23,16 @@ router.get('/users', function(req, res) {
   })
 })
 
+//gets users by id
+router.get('/users/:id', function(req, res) {
+  let id = req.params.id
+  queries.getUserByID(id)
+  .then((users) => {
+    res.json(users);
+  })
+})
+
 function validUser(user){
-  console.log(user);
   let validName = typeof user.username == 'string' && user.username.trim() != '';
   let validEmail = typeof user.email == 'string' && user.email.match(/([@])/g) != null;
   let validPassword = typeof user.password == 'string' && user.password.trim() != '' && user.password.length > 5;
