@@ -7,7 +7,6 @@ const queries = require('./queries')
 const cors = require('cors')
 
 require('dotenv').config()
-//gets all messages
 router.get('/', (req, res) => {
   queries.getAllMessages()
   .then((messages) => {
@@ -15,7 +14,6 @@ router.get('/', (req, res) => {
   })
 })
 
-//gets all users
 router.get('/users', function(req, res) {
   queries.getUsers()
   .then((users) => {
@@ -23,7 +21,6 @@ router.get('/users', function(req, res) {
   })
 })
 
-//gets users by id
 router.get('/users/:id', function(req, res) {
   let id = req.params.id
   queries.getUserByID(id)
@@ -40,7 +37,6 @@ function validUser(user){
   return validName && validEmail && validPassword
 }
 
-//adds a new user
 router.post('/users', (req, res) => {
   let hash = bcrypt.hashSync(req.body.password, 8)
   let newUser = {
@@ -59,10 +55,8 @@ router.post('/users', (req, res) => {
   } else {
     res.json({message: 'Invalid user input'})
   }
-
 })
 
-//gets all messages by a specific user id
 router.get('/:id', (req, res) => {
   let id = req.params.id
   queries.getMessagesByUserId(id)
@@ -71,7 +65,6 @@ router.get('/:id', (req, res) => {
   })
 })
 
-//posts a message
 router.post('/:id', (req, res) => {
   let id = req.params.id
   let newPost = req.body
@@ -81,7 +74,6 @@ router.post('/:id', (req, res) => {
   })
 })
 
-//edits a message
 router.put('/:id', (req, res) => {
   let id = req.params.id
   let edit = req.body
@@ -91,7 +83,6 @@ router.put('/:id', (req, res) => {
   })
 })
 
-//gets a specific message by id
 router.get('/message/:id', (req, res) => {
   let id = req.params.id
   queries.getMessagesById(id)
@@ -100,7 +91,6 @@ router.get('/message/:id', (req, res) => {
   })
 })
 
-//deletes a specific message by id
 router.delete('/message/:id', (req, res) => {
   let id = req.params.id
   queries.deleteMessage(id)
@@ -110,7 +100,5 @@ router.delete('/message/:id', (req, res) => {
     })
   })
 })
-
-
 
 module.exports = router;

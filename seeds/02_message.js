@@ -1,9 +1,6 @@
-
 exports.seed = function(knex, Promise) {
-  // Deletes ALL existing entries
   return knex.raw('DELETE FROM "message"; ALTER SEQUENCE message_id_seq RESTART WITH 8;')
     .then(function () {
-      // Inserts seed entries
       return knex('message').insert([
         {id: 1, title: "Help! My pug won\'t stop peeing in the house!", message: 'I have a four year old female dog, she is fixed, and won\'t stop peeing inside. She was housetrained at one point and never went inside. Now she just pees and poops inside all the time. Help!', rating: 8, user_id: 3},
         {id: 2, title: 'New Puppy: Biting, Mouthing, Nipping', message: 'I thought it would be beneficial for myself and others if we all posted our favorite training tips and tricks for puppies that are biting or mouthing. Comment with your best tips!', rating: 29, user_id: 2},
